@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog4Net.Core", "Blog4Net.Core\Blog4Net.Core.csproj", "{96109491-F800-415B-A94E-8F4AA04062DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog4Net.Web", "Blog4Net.Web\Blog4Net.Web.csproj", "{B24E298D-39D6-4A9A-90D2-45DF5FD2C586}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96109491-F800-415B-A94E-8F4AA04062DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96109491-F800-415B-A94E-8F4AA04062DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96109491-F800-415B-A94E-8F4AA04062DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96109491-F800-415B-A94E-8F4AA04062DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B24E298D-39D6-4A9A-90D2-45DF5FD2C586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B24E298D-39D6-4A9A-90D2-45DF5FD2C586}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B24E298D-39D6-4A9A-90D2-45DF5FD2C586}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B24E298D-39D6-4A9A-90D2-45DF5FD2C586}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
