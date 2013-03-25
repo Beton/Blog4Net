@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{96109491-F800-415B-A94E-8F4AA04062DA}</ProjectGuid>
+    <ProjectGuid>{A319B498-45B8-4A2A-9050-D47E65B6C071}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Blog4Net.Core</RootNamespace>
