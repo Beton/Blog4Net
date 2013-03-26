@@ -1,0 +1,9 @@
+﻿@helper Tags(System.Web.Mvc.HtmlHelper htmlHelper, IList<Blog4Net.Core.Domain.Tag> tags)
+{
+  foreach (var tag in tags)
+  {
+    <div class="tags-div">
+        @Blog4Net.Web.Helpers.ActionLinkHelper.TagLink(htmlHelper, tag)
+    </div>
+  }
+}
