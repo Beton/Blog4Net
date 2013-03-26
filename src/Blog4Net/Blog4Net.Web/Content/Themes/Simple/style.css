@@ -5,7 +5,7 @@ body
   padding: 0px;
   margin: 0px;
   font-size: .78em;
-  background: #090708;
+  background: black;
   color: #5D5D5D;}
 
 p
@@ -104,7 +104,7 @@ ol li
 { padding-bottom: 40px;}
 
 #header
-{ background: transparent url(images/logo.jpg) no-repeat;}
+{ background: transparent url(images/logo.png) no-repeat right top;}
 
 #logo
 { width: 860px;
