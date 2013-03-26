@@ -5,7 +5,7 @@ namespace Blog4Net.Core.Domain
 {
     public class Post
     {
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
 
         public virtual string Title { get; set; }
 

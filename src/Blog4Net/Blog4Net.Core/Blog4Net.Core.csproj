@@ -39,8 +39,15 @@
     <Reference Include="NHibernate">
       <HintPath>..\packages\NHibernate.3.3.3.4000\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common">
+      <HintPath>..\packages\Ninject.Web.Common.3.0.0.7\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,9 +58,12 @@
     <Compile Include="DAL\Maps\CategoryMap.cs" />
     <Compile Include="DAL\Maps\PostMap.cs" />
     <Compile Include="DAL\Maps\TagMap.cs" />
+    <Compile Include="DAL\Repositories\BlogRepository.cs" />
+    <Compile Include="DAL\Repositories\IBlogRepository.cs" />
     <Compile Include="Domain\Category.cs" />
     <Compile Include="Domain\Post.cs" />
     <Compile Include="Domain\Tag.cs" />
+    <Compile Include="Infrastructure\IoC\Modules\RepositoryModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

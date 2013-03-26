@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>    
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title</title>
+   
+        <!-- Stylesheets -->
+        <link rel="stylesheet" type="text/css"href="@Url.Content("~/Content/themes/simple/style.css")" />
+    </head>
+    <body>
+        <div id="main"> 
+            <!-- Header -->
+            <div id="header">
+              <div id="logo">
+                <div id="logo_text">
+                  <h1><a href="/">Blog<span class="logo_colour">4Net</span></a></h1>
+                  <h2>Ketchup testing uber stuff and More...</h2>
+                </div>
+              </div>
+ 
+              <!-- Navigation -->
+              <div id="menubar">
+                <ul id="menu">
+                    <li>@Html.ActionLink("Posts", "Posts", "Blog")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Blog")</li>
+                    <li>@Html.ActionLink("About Me", "AboutMe", "Blog")</li>                    
+                </ul>
+              </div>
+ 
+            </div>
+ 
+            <!-- Site Content -->
+            <div id="site_content">
+                @RenderBody()
+            </div>
+ 
+             <!-- Footer -->
+            <div id="footer">
+                <p>Copyright © @DateTime.Now.Year Blog4Net</p>
+                <p>Powered by <a href="http://beton.github.com" target="_blank">Beton</a></p>
+                <p>All Rights Reserved</p>
+            </div>
+        </div>            
+    </body>
+</html>
