@@ -17,7 +17,7 @@ namespace Blog4Net.Web.Controllers
         {
             var listViewModel = new ListViewModel(blogRepository, pageNumber);                
 
-            ViewBag.Title = "Latests Posts";
+            ViewBag.Title = "Betons Black Blog  |  Latests posts";
 
             return View("List", listViewModel);
         }

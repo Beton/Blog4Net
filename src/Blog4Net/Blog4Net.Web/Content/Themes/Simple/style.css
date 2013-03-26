@@ -181,14 +181,14 @@ ul#menu li.selected a, ul#menu li.selected a:hover
 ul#menu li a:hover
 { color: #FC9C04;}
 
-#site_content
-{ width: 858px;
-  overflow: hidden;
-  margin: 0 auto 0 auto;
-  padding: 10px 20px 40px 20px;
-  background: #F6F6F0 url(images/back.png) repeat-y;
-  border: 15px solid #FFF;} 
-  
+#site_content {
+    width: 858px;
+    overflow: hidden;
+    margin: 0 auto 0 auto;
+    padding: 10px 20px 40px 20px;
+    /*background: #F6F6F0 url(images/back.png) repeat-y;
+  border: 15px solid #FFF;}*/
+}
 #footer
 { text-align: center; }
 
@@ -342,13 +342,20 @@ table tr td
 { margin-right: 5px; }
 
 .post .posted-date
-{ float: right; }
+{ float: right;
+  margin-right: -42%;
+}
 
 .post .row
 { clear: both; }
 
 .post .post-body
-{ margin-top: 25px; clear: both; }
+{ margin-top: 25px; clear: both;
+    text-align: justify;
+    width: 150%;
+    font-size: 15px;
+
+}
 
 .post .post-foot
 { float: right; }
