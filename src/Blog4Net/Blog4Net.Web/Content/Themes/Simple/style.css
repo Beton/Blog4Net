@@ -358,7 +358,9 @@ table tr td
 }
 
 .post .post-foot
-{ float: right; }
+{ float: right;
+  margin-right: -40%;
+}
 
 .pager
 { margin-top:20px; clear: right; }

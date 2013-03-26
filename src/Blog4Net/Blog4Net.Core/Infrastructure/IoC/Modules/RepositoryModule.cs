@@ -20,7 +20,7 @@ namespace Blog4Net.Core.Infrastructure.IoC.Modules
                                        .Database(MsSqlConfiguration.MsSql2008.ConnectionString(c => c.FromConnectionStringWithKey("blog4NetDB")))
                                        .Cache(c => c.UseQueryCache().ProviderClass<HashtableCacheProvider>())
                                        .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Post>())
-                                       .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(true, true))
+                                       //.ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(true, true))
                                        .BuildConfiguration()
                                        .BuildSessionFactory()
                 ).InSingletonScope();
