@@ -13,10 +13,12 @@
         
         <script type="text/javascript">
             $(document).ready(function () {
-                $('input[type="submit"]').attr('disabled', 'disabled');
+                
                 $('input[type="text"]').keyup(function () {
                     if ($(this).val() != '') {
                         $('input[type="submit"]').removeAttr('disabled');
+                    } else {
+                        $('input[type="submit"]').attr('disabled', 'disabled');
                     }
                 });
             });
