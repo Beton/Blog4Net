@@ -12,15 +12,26 @@ namespace Blog4Net.Web.Models
             TotalPosts = blogRepository.TotalPosts();
         }
 
-        public ListViewModel(IBlogRepository blogRepository, string categorySlug, int pageNumber)
+        public ListViewModel(IBlogRepository blogRepository, string text, string type, int pageNumber)
         {
-            Posts = blogRepository.PostsForCategory(categorySlug, pageNumber - 1, 10);
-            TotalPosts = blogRepository.TotalPostsForCategory(categorySlug);
-            Category = blogRepository.Category(categorySlug);
+            switch (type)
+            {
+                case "Tag":
+                    Posts = blogRepository.PostsForTag(text, pageNumber - 1, 10);
+                    TotalPosts = blogRepository.TotalPostsForTag(text);
+                    Tag = blogRepository.Tag(text);
+                    break;
+                default:
+                    Posts = blogRepository.PostsForCategory(text, pageNumber - 1, 10);
+                    TotalPosts = blogRepository.TotalPostsForCategory(text);
+                    Category = blogRepository.Category(text);
+                    break;
+            }
         }
 
         public IList<Post> Posts { get; set; }
         public int TotalPosts { get; set; }
         public Category Category { get; set; }
+        public Tag Tag { get; set; }
     }
 }

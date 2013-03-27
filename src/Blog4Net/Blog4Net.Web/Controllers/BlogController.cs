@@ -26,7 +26,7 @@ namespace Blog4Net.Web.Controllers
 
         public ViewResult Category(string category, int pageNumber = 1)
         {
-            var viewModel = new ListViewModel(blogRepository, category, pageNumber);
+            var viewModel = new ListViewModel(blogRepository, category, "Category", pageNumber);
 
             if (viewModel.Category == null)
                 throw new HttpException(404, "Category not found :(");
@@ -34,6 +34,19 @@ namespace Blog4Net.Web.Controllers
             ViewBag.Title = String.Format(@"Latest posts on category ""{0}""", viewModel.Category.Name);
 
             return View("List", viewModel);
+        }
+
+        public ViewResult Tag(string tag, int pageNumber = 1)
+        {
+            var viewModel = new ListViewModel(blogRepository, tag, "Tag", pageNumber);
+
+            if (viewModel.Tag == null)
+                throw new HttpException(404, "Tag not found :(");
+
+            ViewBag.Title = String.Format(@"Latest posts tagged on ""{0}""", viewModel.Tag.Name);
+
+            return View("List", viewModel);
+           
         }
     }
 }

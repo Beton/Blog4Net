@@ -63,5 +63,34 @@ namespace Blog4Net.Core.DAL.Repositories
 
             return category;
         }
+
+        public IList<Post> PostsForTag(string tagSlug, int pageNumber, int pageSize)
+        {
+            var query = session.Query<Post>()
+                               .Where(post => post.Published && post.Tags.Any(t => t.UrlSlug == tagSlug))
+                               .OrderByDescending(post => post.Published)
+                               .Skip(pageNumber*pageSize)
+                               .Take(pageSize)
+                               .Fetch(post => post.Category);
+
+            query.FetchMany(post => post.Tags).ToFuture();
+
+            return query.ToFuture().ToList();
+
+        }
+
+        public int TotalPostsForTag(string tagSlug)
+        {
+            var postCount = session.Query<Post>().Count(post => post.Tags.Any(tag => tag.UrlSlug == tagSlug));
+
+            return postCount;
+        }
+
+        public Tag Tag(string tagSlug)
+        {
+            var tag = session.Query<Tag>().SingleOrDefault(t => t.UrlSlug == tagSlug);
+
+            return tag;
+        }
     }
 }
