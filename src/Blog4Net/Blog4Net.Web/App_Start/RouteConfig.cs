@@ -10,6 +10,12 @@ namespace Blog4Net.Web.App_Start
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                "Category",
+                "Category/{category}",
+                new {controller = "Blog", action = "Category"}
+                );
+
+            routes.MapRoute(
                 "Action",
                 "{action}",
                 new { controller = "Blog", action = "Posts" }

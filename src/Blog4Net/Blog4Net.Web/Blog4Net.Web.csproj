@@ -135,6 +135,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\Icons\Favicon\favicon.ico" />
     <Content Include="Content\Themes\Simple\admin.css" />
     <Content Include="Content\Themes\Simple\images\arrow.png" />
     <Content Include="Content\Themes\Simple\images\back.png" />

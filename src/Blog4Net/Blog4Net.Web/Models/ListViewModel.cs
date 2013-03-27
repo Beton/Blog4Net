@@ -12,7 +12,15 @@ namespace Blog4Net.Web.Models
             TotalPosts = blogRepository.TotalPosts();
         }
 
+        public ListViewModel(IBlogRepository blogRepository, string categorySlug, int pageNumber)
+        {
+            Posts = blogRepository.PostsForCategory(categorySlug, pageNumber - 1, 10);
+            TotalPosts = blogRepository.TotalPostsForCategory(categorySlug);
+            Category = blogRepository.Category(categorySlug);
+        }
+
         public IList<Post> Posts { get; set; }
         public int TotalPosts { get; set; }
+        public Category Category { get; set; }
     }
 }
