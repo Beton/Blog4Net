@@ -366,7 +366,9 @@ table tr td
 { margin-top:20px; clear: right; }
 
 .pager .next
-{ float: right; }
+{ float: right; 
+  margin-right: -42%;
+}
 
 #search-form 
 { float: right; }

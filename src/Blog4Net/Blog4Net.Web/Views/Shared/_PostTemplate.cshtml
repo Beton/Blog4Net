@@ -1,37 +1,38 @@
-﻿@using Blog4Net.Web.Utility
+﻿@using Blog4Net.Web.Utilities
 @model Blog4Net.Core.Domain.Post
 
 <div class="post">
-  <div class="post-meta">
-    <div class="row">
+    <div>
+        
+        <div class="row">
  
-      <!--Heading-->
-      <div class="post-title">
-        <h2>@Html.PostLink(Model)</h2>
-      </div>
+            <!--Heading-->
+            <div class="post-title">
+                <h2>@Html.PostLink(Model)</h2>
+            </div>
+ 
+        </div>
+ 
+        <div class="row">
+ 
+            <!--Category-->
+            <div class="post-category">
+                <span>Category: </span>@Html.CategoryLink(Model.Category)
+            </div>
+ 
+            <!--Tags-->
+            <div class="post-tags">
+                <span>Tags:</span>@Helpers.Tags(Html, Model.Tags)
+            </div>
+ 
+            <!--Posted date-->
+            <div class="posted-date">
+                @Model.PostedOn.ToConfigLocalTime()
+            </div>
+ 
+        </div>
  
     </div>
- 
-    <div class="row">
- 
-      <!--Category-->
-      <div class="post-category">
-        <span>Category: </span>@Html.CategoryLink(Model.Category)
-      </div>
- 
-      <!--Tags-->
-      <div class="post-tags">
-        <span>Tags:</span>@Helpers.Tags(Html, Model.Tags)
-      </div>
- 
-      <!--Posted date-->
-      <div class="posted-date">
-        @Model.PostedOn.ToConfigLocalTime()
-      </div>
- 
-    </div>
- 
-  </div>
  
   <!--Short Description-->
   <div class="post-body">

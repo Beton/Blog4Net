@@ -6,18 +6,20 @@
 
 <div id="content">
  
-  <h1>@ViewBag.Title</h1>
+    <h1>@ViewBag.Title</h1>
+    
+    @Html.Partial("_Pager", Model)
  
-  @if (Model.Posts.Count > 0)
-  {
-    foreach (var post in Model.Posts)
+    @if (Model.Posts.Count > 0)
     {
-      @Html.Partial("_PostTemplate", post)
+        foreach (var post in Model.Posts)
+        {
+          @Html.Partial("_PostTemplate", post)
+        }
     }
-  }
-  else
-  {
-    <p>No posts found!</p>
-  }
+    else
+    {
+        <p>No posts found!</p>
+    }
  
 </div>

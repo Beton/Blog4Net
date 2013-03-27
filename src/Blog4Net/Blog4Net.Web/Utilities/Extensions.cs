@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Configuration;
 
-namespace Blog4Net.Web.Utility
+namespace Blog4Net.Web.Utilities
 {
     public static class Extensions
     {
