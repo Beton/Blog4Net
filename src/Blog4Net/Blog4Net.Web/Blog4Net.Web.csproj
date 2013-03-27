@@ -141,6 +141,7 @@
     <Content Include="Content\Themes\Simple\images\back.png" />
     <Content Include="Content\Themes\Simple\images\bullet.png" />
     <Content Include="Content\Themes\Simple\images\graphic.png" />
+    <Content Include="Content\Themes\Simple\images\icon_search_dark.png" />
     <Content Include="Content\Themes\Simple\images\link.png" />
     <Content Include="Content\Themes\Simple\images\logo.png" />
     <Content Include="Content\Themes\Simple\images\search.png" />
