@@ -735,7 +735,6 @@
     <Content Include="Content\Themes\Simple\style.css" />
     <Content Include="Content\Themes\Simple\ui.jqgrid.css" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\App.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -748,6 +747,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

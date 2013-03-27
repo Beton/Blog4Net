@@ -357,6 +357,11 @@ table tr td
 
 }
 
+.searchButton {
+     position: absolute;
+    margin-top: -5px;
+     }
+
 .post .post-foot
 { float: right;
   margin-right: -40%;

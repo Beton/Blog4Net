@@ -19,7 +19,7 @@ namespace Blog4Net.Web.Controllers
         {
             var listViewModel = new ListViewModel(blogRepository, pageNumber);                
 
-            ViewBag.Title = "Black sheep  | Beton | Latests posts";
+            ViewBag.Title = "Latests posts";
 
             return View("List", listViewModel);
         }
