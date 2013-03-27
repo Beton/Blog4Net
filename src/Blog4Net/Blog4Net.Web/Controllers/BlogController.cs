@@ -45,8 +45,16 @@ namespace Blog4Net.Web.Controllers
 
             ViewBag.Title = String.Format(@"Latest posts tagged on ""{0}""", viewModel.Tag.Name);
 
+            return View("List", viewModel);           
+        }
+
+        public ViewResult Search(string searchCritera, int pageNumber = 1)
+        {
+            ViewBag.Title = String.Format(@"Lists of posts found for search text ""{0}""", searchCritera);
+
+            var viewModel = new ListViewModel(blogRepository, searchCritera, "Search", pageNumber);
+            
             return View("List", viewModel);
-           
         }
     }
 }

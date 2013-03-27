@@ -15,5 +15,8 @@ namespace Blog4Net.Core.DAL.Repositories
         IList<Post> PostsForTag(string tagSlug, int pageNumber, int pageSize);
         int TotalPostsForTag(string tagSlug);
         Tag Tag(string tagSlug);
+
+        IList<Post> SearchPosts(string searchCriteria, int pageNumber, int pageSize);
+        int TotalSearchPosts(string searchCritera);
     }
 }

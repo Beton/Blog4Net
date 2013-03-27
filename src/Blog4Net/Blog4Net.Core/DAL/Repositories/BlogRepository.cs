@@ -92,5 +92,26 @@ namespace Blog4Net.Core.DAL.Repositories
 
             return tag;
         }
+
+        public IList<Post> SearchPosts(string searchCriteria, int pageNumber, int pageSize)
+        {
+            var query = session.Query<Post>()
+                       .Where(p => p.Published && (p.Title.Contains(searchCriteria) || p.Category.Name.Equals(searchCriteria) || p.Tags.Any(t => t.Name.Equals(searchCriteria))))
+                       .OrderByDescending(p => p.PostedOn)
+                       .Skip(pageNumber * pageSize)
+                       .Take(pageSize)
+                       .Fetch(p => p.Category);
+
+            query.FetchMany(p => p.Tags).ToFuture();
+
+            return query.ToFuture().ToList();            
+        }
+
+        public int TotalSearchPosts(string searchCritera)
+        {
+            var searchPostsCount = session.Query<Post>().Count(p => p.Published && (p.Title.Contains(searchCritera) || p.Category.Name.Equals(searchCritera) || p.Tags.Any(t => t.Name.Equals(searchCritera))));
+
+            return searchPostsCount;
+        }
     }
 }

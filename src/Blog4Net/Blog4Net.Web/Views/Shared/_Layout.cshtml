@@ -7,6 +7,22 @@
         <link rel="icon" type="image/ico" href="../../Content/Icons/Favicon/favicon.ico" />
         <!-- Stylesheets -->
         <link rel="stylesheet" type="text/css"href="@Url.Content("~/Content/themes/simple/style.css")" />
+        <!-- Scripts -->
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+        <script src="@Url.Content("~/Scripts/app.js")"></script>      
+        
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('input[type="submit"]').attr('disabled', 'disabled');
+                $('input[type="text"]').keyup(function () {
+                    if ($(this).val() != '') {
+                        $('input[type="submit"]').removeAttr('disabled');
+                    }
+                });
+            });
+
+        </script>
+
     </head>
     <body>
         <div id="main"> 
@@ -32,6 +48,7 @@
  
             <!-- Site Content -->
             <div id="site_content">
+                @Html.Partial("_Search")
                 @RenderBody()
             </div>
  

@@ -735,6 +735,7 @@
     <Content Include="Content\Themes\Simple\style.css" />
     <Content Include="Content\Themes\Simple\ui.jqgrid.css" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\App.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -812,6 +813,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Pager.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Search.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
