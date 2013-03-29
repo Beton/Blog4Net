@@ -124,5 +124,19 @@ namespace Blog4Net.Core.DAL.Repositories
 
             return post;
         }
+
+        public IList<Category> Categories()
+        {
+            var categories = session.Query<Category>().OrderBy(category => category.Name);
+
+            return categories.ToList();
+        }
+
+        public IList<Tag> Tags()
+        {
+            var tags = session.Query<Tag>().OrderBy(tag => tag.Name);
+
+            return tags.ToList();
+        }
     }
 }

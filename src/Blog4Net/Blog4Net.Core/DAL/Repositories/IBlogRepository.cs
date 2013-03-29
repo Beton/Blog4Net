@@ -20,5 +20,8 @@ namespace Blog4Net.Core.DAL.Repositories
         int TotalSearchPosts(string searchCritera);
 
         Post Post(int year, int month, string titleSlug);
+
+        IList<Category> Categories();
+        IList<Tag> Tags();
     }
 }

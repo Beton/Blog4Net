@@ -1,13 +1,19 @@
-﻿@using (Html.BeginForm(
-    "Search",           // action
-    "Blog",             // controller
-    FormMethod.Get,     // method
-    new { id = "search-form" })) 
-{
-    <p>
-        @Html.TextBox("searchCritera")
-    </p>
-    <p>
-        <input value="submit" type="image" alt="Submit"  src="../../Content/Themes/Simple/images/icon_search_dark.png" class="searchButton"/>
-    </p>
-}
+﻿
+<div class="sidebar">
+    
+    <h3>Search posts</h3>
+
+    @using (Html.BeginForm(
+        "Search",           // action
+        "Blog",             // controller
+        FormMethod.Get,     // method
+        new { id = "search-form" ,})) 
+    {
+        <ul>
+            <li>               
+                @Html.TextBox("searchCritera", string.Empty, new { style="width: 100px;"})                
+            </li>            
+        </ul>
+    }
+
+</div>

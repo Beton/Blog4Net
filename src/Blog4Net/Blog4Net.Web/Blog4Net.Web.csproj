@@ -128,6 +128,7 @@
     </Compile>
     <Compile Include="Helpers\ActionLinkHelper.cs" />
     <Compile Include="Models\ListViewModel.cs" />
+    <Compile Include="Models\WidgetViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Extensions.cs" />
   </ItemGroup>
@@ -820,6 +821,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Blog\Post.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Sidebars.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Categories.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Tags.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LatestPost.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

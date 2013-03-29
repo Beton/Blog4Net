@@ -1,0 +1,12 @@
+﻿@model Blog4Net.Web.Models.WidgetViewModel
+
+<div id="sidebars">
+        
+    @Html.Partial("_Categories", Model.Categories)
+    @Html.Partial("_Tags", Model.Tags)
+    @Html.Partial("_LatestPost", Model.Posts)    
+    @Html.Partial("_Search")    
+
+
+</div>
+

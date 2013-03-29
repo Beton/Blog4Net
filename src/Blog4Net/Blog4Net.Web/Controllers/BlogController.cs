@@ -69,5 +69,13 @@ namespace Blog4Net.Web.Controllers
 
             return View(post);
         }
+
+        [ChildActionOnly]
+        public PartialViewResult Sidebars()
+        {
+            var widgetViewModel = new WidgetViewModel(blogRepository);
+
+            return PartialView("_Sidebars", widgetViewModel);
+        }
     }
 }
