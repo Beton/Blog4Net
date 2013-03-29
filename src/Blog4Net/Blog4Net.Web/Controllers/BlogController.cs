@@ -56,5 +56,18 @@ namespace Blog4Net.Web.Controllers
             
             return View("List", viewModel);
         }
+
+        public ViewResult Post(int year, int month, string title)
+        {
+            var post = blogRepository.Post(year, month, title);
+
+            if (post == null) 
+                throw new HttpException(404, string.Format(@"Post '{0}' not found.", title));
+
+            if (!post.Published && !User.Identity.IsAuthenticated)
+                throw new HttpException(401, string.Format(@"Post '{0}' is not published.", title));
+
+            return View(post);
+        }
     }
 }

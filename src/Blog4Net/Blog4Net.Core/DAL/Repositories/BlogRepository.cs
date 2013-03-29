@@ -113,5 +113,16 @@ namespace Blog4Net.Core.DAL.Repositories
 
             return searchPostsCount;
         }
+
+        public Post Post(int year, int month, string titleSlug)
+        {
+            var post = session.Query<Post>()
+                               .Where(p => p.PostedOn.Year == year && p.PostedOn.Month == month && p.UrlSlug == titleSlug)
+                               .Fetch(p => p.Category)
+                               .FetchMany(p => p.Tags)
+                               .FirstOrDefault();
+
+            return post;
+        }
     }
 }

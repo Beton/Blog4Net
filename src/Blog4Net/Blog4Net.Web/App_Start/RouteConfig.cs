@@ -20,10 +20,17 @@ namespace Blog4Net.Web.App_Start
                 "{action}",
                 new { controller = "Blog", action = "Posts" }
             );
+
             routes.MapRoute(
                 "Tag",
                 "Tag/{tag}",
                 new {controller = "Blog", action = "Tag"}
+                );
+
+            routes.MapRoute(
+                "Post",
+                "Archive/{year}/{month}/{title}",
+                new {controller = "Blog", action = "Post"}
                 );
         }
     }

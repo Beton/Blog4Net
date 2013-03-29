@@ -1,0 +1,40 @@
+﻿@using Blog4Net.Web.Utilities
+@model Blog4Net.Core.Domain.Post
+
+@{
+    ViewBag.Title = Model.Title;    
+}
+
+<div id="content">
+  <div class="post">
+    <div>
+      <div class="row">
+       
+        <div class="post-title">
+          <h1>@Html.PostLink(Model)</h1>
+        </div>
+         
+      </div>
+      <div class="row">
+       
+        <div class="post-category">
+          <span>Category:</span> @Html.CategoryLink(Model.Category)
+        </div>
+         
+        <div class="post-tags">
+          <span>Tags:</span> @Helpers.Tags(Html, Model.Tags)
+        </div>
+         
+        <div class="posted-date">
+          @Model.PostedOn.ToConfigLocalTime()
+        </div>
+         
+      </div>
+    </div>
+     
+    <div class="post-body">
+     @Html.Raw(Model.Description)
+    </div>
+     
+  </div>
+</div>
