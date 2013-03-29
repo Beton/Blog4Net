@@ -11,25 +11,14 @@ using Ninject.Web.Common;
 namespace Blog4Net.Web
 {    
     public class MvcApplication : NinjectHttpApplication
-    {
-        private static IKernel kernel;
-        private static readonly object Lock = new object();
-
-        public new IKernel Kernel
-        {
-            get { return kernel; }
-        }
-
+    {            
         protected override IKernel CreateKernel()
-        {
-            lock (Lock)
-            {
-                kernel = new StandardKernel();
+        {            
+            var kernel = new StandardKernel();
 
-                kernel.Load(new RepositoryModule());
-                kernel.Bind<IBlogRepository>().To<BlogRepository>();
-            }
-                                    
+            kernel.Load(new RepositoryModule());
+            kernel.Bind<IBlogRepository>().To<BlogRepository>();
+                                                
             return kernel;
         }
 
@@ -49,11 +38,6 @@ namespace Blog4Net.Web
             if (httpError != null && httpError.GetHttpCode() == 404) return;
 
             Elmah.ErrorSignal.FromCurrentContext().Raise(ex);
-        }
-
-        protected void OnApplicationEnded()
-        {            
-            kernel.Dispose();
-        }
+        }        
     }
 }
