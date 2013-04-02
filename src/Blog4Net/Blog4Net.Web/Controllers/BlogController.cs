@@ -3,6 +3,7 @@ using System.Web;
 using System.Web.Mvc;
 using Blog4Net.Core.DAL.Repositories;
 using Blog4Net.Web.Models;
+using Blog4Net.Web.Models.ViewModels;
 
 namespace Blog4Net.Web.Controllers
 {

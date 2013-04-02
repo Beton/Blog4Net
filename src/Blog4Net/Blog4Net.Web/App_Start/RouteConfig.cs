@@ -16,6 +16,25 @@ namespace Blog4Net.Web.App_Start
                 );
 
             routes.MapRoute(
+                "Login",
+                "Login",
+                new {controller = "Admin", action = "Login"}
+                );
+
+            routes.MapRoute(
+                "Logout",
+                "Logout",
+                new {controller = "Admin", action = "Logout"}
+                );
+
+            routes.MapRoute(
+                "Administration",
+                "Manage",
+                new { controller = "Admin", action = "Manage" }
+                );
+
+            //Default 
+            routes.MapRoute(
                 "Action",
                 "{action}",
                 new { controller = "Blog", action = "Posts" }

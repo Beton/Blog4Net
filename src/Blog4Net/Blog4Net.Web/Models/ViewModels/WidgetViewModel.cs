@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Web.Mvc;
 using Blog4Net.Core.DAL.Repositories;
 using Blog4Net.Core.Domain;
 
-namespace Blog4Net.Web.Models
+namespace Blog4Net.Web.Models.ViewModels
 {
     public class WidgetViewModel
     {
