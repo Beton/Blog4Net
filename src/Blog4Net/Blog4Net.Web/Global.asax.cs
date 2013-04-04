@@ -3,8 +3,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Blog4Net.Core.DAL.Repositories;
-using Blog4Net.Core.Infrastructure.IoC.Modules;
+using Blog4Net.Core.Infrastructure.IoC;
 using Blog4Net.Web.App_Start;
+using Blog4Net.Web.Services;
 using Ninject;
 using Ninject.Web.Common;
 
@@ -16,9 +17,11 @@ namespace Blog4Net.Web
         {            
             var kernel = new StandardKernel();
 
-            kernel.Load(new RepositoryModule());
+            NinjectBootstrapper.LoadModules(kernel);
+
             kernel.Bind<IBlogRepository>().To<BlogRepository>();
-                                                
+            kernel.Bind<IAuthenticationService>().To<FormsAuthenticationService>();
+                                                                                    
             return kernel;
         }
 

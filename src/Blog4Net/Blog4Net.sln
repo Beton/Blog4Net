@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog4Net.Web", "Blog4Net.We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog4Net.Core", "Blog4Net.Core\Blog4Net.Core.csproj", "{A319B498-45B8-4A2A-9050-D47E65B6C071}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{202A4934-3B71-4BC3-A05B-233646BA15A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog4Net.Tests", "Blog4Net.Tests\Blog4Net.Tests.csproj", "{6FFE6E12-F813-4C0F-BBF7-B5066768B865}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,8 +23,15 @@ Global
 		{A319B498-45B8-4A2A-9050-D47E65B6C071}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A319B498-45B8-4A2A-9050-D47E65B6C071}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A319B498-45B8-4A2A-9050-D47E65B6C071}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FFE6E12-F813-4C0F-BBF7-B5066768B865}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FFE6E12-F813-4C0F-BBF7-B5066768B865}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FFE6E12-F813-4C0F-BBF7-B5066768B865}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FFE6E12-F813-4C0F-BBF7-B5066768B865}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6FFE6E12-F813-4C0F-BBF7-B5066768B865} = {202A4934-3B71-4BC3-A05B-233646BA15A1}
 	EndGlobalSection
 EndGlobal

@@ -63,7 +63,8 @@
     <Compile Include="Domain\Category.cs" />
     <Compile Include="Domain\Post.cs" />
     <Compile Include="Domain\Tag.cs" />
-    <Compile Include="Infrastructure\IoC\Modules\RepositoryModule.cs" />
+    <Compile Include="Infrastructure\IoC\Modules\PersistenceModule.cs" />
+    <Compile Include="Infrastructure\IoC\NinjectBootstrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

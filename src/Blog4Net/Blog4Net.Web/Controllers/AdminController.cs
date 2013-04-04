@@ -1,23 +1,25 @@
 ﻿using System.Web.Mvc;
-using System.Web.Security;
 using Blog4Net.Web.Models;
+using Blog4Net.Web.Services;
 
 namespace Blog4Net.Web.Controllers
 {
     [Authorize]
     public class AdminController : Controller
     {
+        private readonly IAuthenticationService authenticationService;
+
+        public AdminController(IAuthenticationService authenticationService)
+        {
+            this.authenticationService = authenticationService;
+        }
+
         [HttpGet, AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
-                {
-                    return Redirect(returnUrl);
-                }
-            }
-
+            if (authenticationService.IsLogged)
+                return RedirectToAction("Manage");         
+            
             ViewBag.ReturnUrl = returnUrl;
 
             return View();
@@ -26,20 +28,12 @@ namespace Blog4Net.Web.Controllers
         [HttpPost, AllowAnonymous, ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel loginModel, string returnUrl)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && authenticationService.LogOn(loginModel.Username, loginModel.Password))
             {
-                if (FormsAuthentication.Authenticate(loginModel.Username, loginModel.Password))
-                {
-                    FormsAuthentication.SetAuthCookie(loginModel.Username, false);
-
-                    if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
-                        return Redirect(returnUrl);
-
-                    return RedirectToAction("Manage", "Admin");
-                }
-
-                ModelState.AddModelError(string.Empty, "The user name or password provided is incorrect.");
+                return RedirectToAction("Manage");              
             }
+
+            ModelState.AddModelError(string.Empty, "The user name or password provided is incorrect.");
 
             return View();
         }
@@ -47,7 +41,7 @@ namespace Blog4Net.Web.Controllers
         [HttpGet]
         public ActionResult Logout()
         {
-            FormsAuthentication.SignOut();
+            authenticationService.LogOff();
 
             return RedirectToAction("Login", "Admin");
         }
@@ -55,7 +49,7 @@ namespace Blog4Net.Web.Controllers
         [HttpGet]
         public ActionResult Manage()
         {
-            return Content("TODO");
-        }
+            return View();
+        }       
     }
 }

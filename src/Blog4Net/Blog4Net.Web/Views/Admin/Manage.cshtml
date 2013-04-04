@@ -1,6 +1,70 @@
 ﻿@{
-    ViewBag.Title = "Manage";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 
-<h2>Manage</h2>
+<!DOCTYPE html>
+ 
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Black Sheep Admin Area  |  Manage Posts, Categories and Tags</title>
+ 
+    <!-- jquery library -->
+    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+ 
+    <!-- jquery ui library -->
+    <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+    <link href="/Content/themes/simple/jquery-ui-1.9.2.custom/css/dark-hive/jquery-ui-1.10.2.custom.css" rel="stylesheet" />
+ 
+    <!-- jqgrid -->
+    <link href="/Scripts/jquery.jqGrid-4.4.2/css/ui.jqgrid.css" rel="stylesheet" />
+    <script src="/Scripts/jquery.jqGrid-4.4.2/js/jquery.jqGrid.min.js"></script>
+    <script src="/Scripts/jquery.jqGrid-4.4.2/js/i18n/grid.locale-en.js"></script>
+ 
+    <!-- tinyMCE -->
+    <script src="/Scripts/tiny_mce/tiny_mce.js"></script>
+ 
+    <link href="/Content/themes/simple/admin.css" rel="stylesheet" />
+    <script src="/Scripts/admin.js"></script>
+ 
+</head>
+<body>
+     
+    <!-- logout link -->
+    <div style="text-align:right; margin-bottom:5px; font-size: larger">
+        <a href="/Logout">LOGOUT</a>
+    </div>
+ 
+    <h2>Manage Posts, Categories and Tags</h2>
+ 
+    <!-- tab control -->
+    <div id="tabs">
+        <ul>
+            <li><a href="#tab-posts">Posts</a></li>
+            <li><a href="#tab-cats">Categories</a></li>
+            <li><a href="#tab-tags">Tags</a></li>
+        </ul>
+         
+        <div id="tab-posts" class="tab">
+            <table id="tablePosts" class="grid">
+            </table>
+            <div id="pagerPosts" class="pager">
+            </div>
+        </div>
+         
+        <div id="tab-cats" class="tab">
+            <table id="tableCats" class="grid">
+            </table>
+            <div id="pagerCats" class="pager">
+            </div>
+        </div>
+         
+        <div id="tab-tags" class="tab">
+            <table id="tableTags" class="grid">
+            </table>
+            <div id="pagerTags" class="pager">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

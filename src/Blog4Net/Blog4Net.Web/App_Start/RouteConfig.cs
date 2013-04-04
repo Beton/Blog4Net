@@ -33,6 +33,12 @@ namespace Blog4Net.Web.App_Start
                 new { controller = "Admin", action = "Manage" }
                 );
 
+            routes.MapRoute(
+                "AdminAction",
+                "Admin/{action}",
+                new {controller = "Admin", action = "Login"}
+                );
+
             //Default 
             routes.MapRoute(
                 "Action",

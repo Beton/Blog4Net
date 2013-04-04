@@ -9,7 +9,7 @@ using Ninject.Web.Common;
 
 namespace Blog4Net.Core.Infrastructure.IoC.Modules
 {
-    public class RepositoryModule : NinjectModule
+    public class PersistenceModule : NinjectModule
     {
         public override void Load()
         {
