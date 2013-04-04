@@ -30,6 +30,7 @@
 			return [true];
 		};
 	
+	    // columns
 		var colNames = [
 			'Id',
 			'Title',
@@ -213,22 +214,28 @@
 			sorttype: 'date'
 		});
 
+
+	    // create the grid
 		$(gridName).jqGrid({
+		    // server url and other ajax stuff 
 			url: '/Admin/Posts',
 			datatype: 'json',
 			mtype: 'GET',
 			height: 'auto',
 			toppager: true,
 
+            //columns
 			colNames: colNames,
 			colModel: columns,
 
+            //pagination
 			pager: pagerName,
 			rownumbers: true,
 			rownumWidth: 40,
-			rowNum: 10,
-			rowList: [10, 20, 30],
+			rowNum: 10,			
+            rowList: [10, 20, 30],
 
+            //sorting
 			sortname: 'PostedOn',
 			sortorder: 'desc',
 			viewrecords: true,

@@ -26,8 +26,13 @@
                 <div id="menubar">
                     <ul id="menu">
                         <li>@Html.ActionLink("Posts", "Posts", "Blog")</li>
-                        <li>@Html.ActionLink("Login", "Login", "Admin")</li>
-                        @*<li><a href="http://beton.github.com" target="_blank">Contact</a></li>*@
+                        
+                        @if (HttpContext.Current.User.Identity.IsAuthenticated)
+                        {
+                            <li>@Html.ActionLink("Manage", "Manage", "Admin")</li>
+                        }
+                        else { <li>@Html.ActionLink("Login", "Login", "Admin")</li> }                                                                                                                                   
+                        
                         <li><a href="http://beton.github.com" target="_blank">About me</a></li>                    
                     </ul>
                 </div>

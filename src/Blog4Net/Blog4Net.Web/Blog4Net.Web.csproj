@@ -150,6 +150,7 @@
     <Content Include="Content\Themes\Simple\admin.css" />
     <Content Include="Content\Themes\Simple\images\arrow.png" />
     <Content Include="Content\Themes\Simple\images\back.png" />
+    <Content Include="Content\Themes\Simple\images\black_blog.png" />
     <Content Include="Content\Themes\Simple\images\bullet.png" />
     <Content Include="Content\Themes\Simple\images\graphic.png" />
     <Content Include="Content\Themes\Simple\images\icon_search_dark.png" />

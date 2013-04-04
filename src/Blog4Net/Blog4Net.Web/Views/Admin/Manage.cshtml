@@ -34,37 +34,44 @@
     <div style="text-align:right; margin-bottom:5px; font-size: large; font-family:-moz-fixed">
         <a href="/Logout">LOGOUT</a>
     </div>
- 
-    <h2>Manage Posts, Categories and Tags</h2>
- 
-    <!-- tab control -->
-    <div id="tabs">
-        <ul>
-            <li><a href="#tab-posts">Posts</a></li>
-            <li><a href="#tab-cats">Categories</a></li>
-            <li><a href="#tab-tags">Tags</a></li>
-        </ul>
+   
+    <div style="width: 79%; margin: 0px auto;">
+        <!-- tab control -->
+        <div id="tabs">
+            <ul>
+                <li><a href="#tab-posts">Posts</a></li>
+                <li><a href="#tab-cats">Categories</a></li>
+                <li><a href="#tab-tags">Tags</a></li>
+            </ul>
          
-        <div id="tab-posts" class="tab">
-            <table id="tablePosts" class="grid">
-            </table>
-            <div id="pagerPosts" class="pager">
+            <div id="tab-posts" class="tab">
+                <table id="tablePosts" class="grid">
+                </table>
+                <div id="pagerPosts" class="pager">
+                </div>
+            </div>
+         
+            <div id="tab-cats" class="tab">
+                <table id="tableCats" class="grid">
+                </table>
+                <div id="pagerCats" class="pager">
+                </div>
+            </div>
+         
+            <div id="tab-tags" class="tab">
+                <table id="tableTags" class="grid">
+                </table>
+                <div id="pagerTags" class="pager">
+                </div>
             </div>
         </div>
-         
-        <div id="tab-cats" class="tab">
-            <table id="tableCats" class="grid">
-            </table>
-            <div id="pagerCats" class="pager">
+            <!-- Footer -->
+            <div class="adminFooter">
+                <a href="/">
+                    <img alt="Black Sheep" src="~/Content/Themes/Simple/images/black_blog.png" />
+                </a>
             </div>
-        </div>
-         
-        <div id="tab-tags" class="tab">
-            <table id="tableTags" class="grid">
-            </table>
-            <div id="pagerTags" class="pager">
-            </div>
-        </div>
     </div>
+            
 </body>
 </html>
