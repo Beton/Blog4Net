@@ -1,7 +1,7 @@
 ﻿body 
 { font-family: "lucida sans", arial, sans-serif; 
   font-size: 9pt; 
-  background-color:  grey;
+  background-color:  #736D6F;
 
 }
 
@@ -26,4 +26,9 @@ span.field-validation-error
 
 div#tab-posts {
   overflow: scroll;
+}
+
+.loginBox {
+    font-family: -moz-fixed;
+    font-size: x-large
 }

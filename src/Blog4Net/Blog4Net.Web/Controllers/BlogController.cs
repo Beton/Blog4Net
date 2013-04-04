@@ -2,7 +2,6 @@
 using System.Web;
 using System.Web.Mvc;
 using Blog4Net.Core.DAL.Repositories;
-using Blog4Net.Web.Models;
 using Blog4Net.Web.Models.ViewModels;
 
 namespace Blog4Net.Web.Controllers
@@ -24,7 +23,7 @@ namespace Blog4Net.Web.Controllers
 
             return View("List", listViewModel);
         }
-
+        
         public ViewResult Category(string category, int pageNumber = 1)
         {
             var viewModel = new ListViewModel(blogRepository, category, "Category", pageNumber);

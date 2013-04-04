@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Blog4Net.Core.Domain
 {
@@ -12,6 +13,7 @@ namespace Blog4Net.Core.Domain
 
         public virtual string Description { get; set; }
 
+        [JsonIgnore]
         public virtual IList<Post> Posts { get; set; }
     }
 }

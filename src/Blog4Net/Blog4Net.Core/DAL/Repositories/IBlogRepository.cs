@@ -6,7 +6,8 @@ namespace Blog4Net.Core.DAL.Repositories
     public interface IBlogRepository
     {
         IList<Post> Posts(int pageNumber, int pageSize);
-        int TotalPosts();
+        IList<Post> Posts(int pageNumber, int pageSize, string sortColumn, bool sortByAscending);
+        int TotalPosts(bool publishedOnly = true);
         
         IList<Post> PostsForCategory(string categorySlug, int pageNumber, int pageSize);
         int TotalPostsForCategory(string categorySlug);

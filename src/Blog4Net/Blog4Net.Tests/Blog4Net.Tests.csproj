@@ -54,6 +54,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Blog4Net.Core\Blog4Net.Core.csproj">
+      <Project>{A319B498-45B8-4A2A-9050-D47E65B6C071}</Project>
+      <Name>Blog4Net.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Blog4Net.Web\Blog4Net.Web.csproj">
       <Project>{B24E298D-39D6-4A9A-90D2-45DF5FD2C586}</Project>
       <Name>Blog4Net.Web</Name>

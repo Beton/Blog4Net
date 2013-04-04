@@ -29,11 +29,101 @@ namespace Blog4Net.Core.DAL.Repositories
             return query.ToFuture().ToList();
         }
 
-        public int TotalPosts()
+        public IList<Post> Posts(int pageNumber, int pageSize, string sortColumn, bool sortByAscending)
         {
-            var query = session.QueryOver<Post>().Where(post => post.Published).RowCount();
+            IQueryable<Post> query;
 
-            return query;
+            switch (sortColumn)
+            {
+                case "Title":
+                    if (sortByAscending)
+                        query = session.Query<Post>()
+                                       .OrderBy(p => p.Title)
+                                       .Skip(pageNumber*pageSize)
+                                       .Take(pageSize)
+                                       .Fetch(p => p.Category);
+                    else
+                        query = session.Query<Post>()
+                                       .OrderByDescending(p => p.Title)
+                                       .Skip(pageNumber*pageSize)
+                                       .Take(pageSize)
+                                       .Fetch(p => p.Category);
+                    break;
+                case "Published":
+                    if (sortByAscending)
+                        query = session.Query<Post>()
+                                       .OrderBy(p => p.Published)
+                                       .Skip(pageNumber*pageSize)
+                                       .Take(pageSize)
+                                       .Fetch(p => p.Category);
+                    else
+                        query = session.Query<Post>()
+                                       .OrderByDescending(p => p.Published)
+                                       .Skip(pageNumber*pageSize)
+                                       .Take(pageSize)
+                                       .Fetch(p => p.Category);
+                    break;
+                case "PostedOn":
+                    if (sortByAscending)
+                        query = session.Query<Post>()
+                                       .OrderBy(p => p.PostedOn)
+                                       .Skip(pageNumber*pageSize)
+                                       .Take(pageSize)
+                                       .Fetch(p => p.Category);
+                    else
+                        query = session.Query<Post>()
+                                       .OrderByDescending(p => p.PostedOn)
+                                       .Skip(pageNumber*pageSize)
+                                       .Take(pageSize)
+                                       .Fetch(p => p.Category);
+                    break;
+                case "Modified":
+                    if (sortByAscending)
+                        query = session.Query<Post>()
+                                       .OrderBy(p => p.Modified)
+                                       .Skip(pageNumber*pageSize)
+                                       .Take(pageSize)
+                                       .Fetch(p => p.Category);
+                    else
+                        query = session.Query<Post>()
+                                       .OrderByDescending(p => p.Modified)
+                                       .Skip(pageNumber*pageSize)
+                                       .Take(pageSize)
+                                       .Fetch(p => p.Category);
+                    break;
+                case "Category":
+                    if (sortByAscending)
+                        query = session.Query<Post>()
+                                       .OrderBy(p => p.Category.Name)
+                                       .Skip(pageNumber*pageSize)
+                                       .Take(pageSize)
+                                       .Fetch(p => p.Category);
+                    else
+                        query = session.Query<Post>()
+                                       .OrderByDescending(p => p.Category.Name)
+                                       .Skip(pageNumber*pageSize)
+                                       .Take(pageSize)
+                                       .Fetch(p => p.Category);
+                    break;
+                default:
+                    query = session.Query<Post>()
+                                   .OrderByDescending(p => p.PostedOn)
+                                   .Skip(pageNumber*pageSize)
+                                   .Take(pageSize)
+                                   .Fetch(p => p.Category);
+                    break;
+            }
+
+            query.FetchMany(post => post.Tags).ToFuture();
+
+            return query.ToFuture().ToList();
+        }
+
+        public int TotalPosts(bool publishedOnly = true)
+        {
+            var query = session.Query<Post>().Where(post => publishedOnly || post.Published == true);
+
+            return query.Count();
         }
 
         public IList<Post> PostsForCategory(string categorySlug, int pageNumber, int pageSize)

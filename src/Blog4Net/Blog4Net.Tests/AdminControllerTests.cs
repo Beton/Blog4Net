@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Blog4Net.Core.DAL.Repositories;
 using Blog4Net.Web.Controllers;
 using Blog4Net.Web.Models;
 using Blog4Net.Web.Services;
@@ -13,13 +14,15 @@ namespace Blog4Net.Tests
         private AdminController sut;
 
         private IAuthenticationService mockedAuthenticationService;
+        private IBlogRepository mockedBlogRepository;
 
         [SetUp]
         public void SetUp()
         {
             mockedAuthenticationService = MockRepository.GenerateMock<IAuthenticationService>();
+            mockedBlogRepository = MockRepository.GenerateMock<IBlogRepository>();
 
-            sut = new AdminController(mockedAuthenticationService);
+            sut = new AdminController(mockedAuthenticationService, mockedBlogRepository);
         }
        
         [Test]

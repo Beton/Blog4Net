@@ -14,24 +14,25 @@
      
         <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/jquery.validate.min.js"></script>
-        <script src="http://ajax.aspnetcdn.com/ajax/mvc/3.0/jquery.validate.unobtrusive.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/mvc/3.0/jquery.validate.unobtrusive.min.js"></script>        
     </head>
 
     <body>
-        <div id="login-div">
+        <h3>Black Sheep  |  Admin area</h3>
+        <div id="login-div" class="loginBox">
             
  
             @using (Html.BeginForm())
             {
                 <fieldset>
                     <legend>Login</legend>
-                    <p>
+                    <p align="center">
                         @Html.LabelFor(m => m.Username)
                         @Html.TextBoxFor(m => m.Username)
                         @Html.ValidationMessageFor(m => m.Username)
                     </p>
              
-                    <p>
+                    <p align="center">
                         @Html.LabelFor(m => m.Password)
                         @Html.PasswordFor(m => m.Password)
                         @Html.ValidationMessageFor(m => m.Password)
