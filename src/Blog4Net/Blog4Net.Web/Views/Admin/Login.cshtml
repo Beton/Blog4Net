@@ -27,13 +27,17 @@
                     <legend>Login</legend>
                     <p align="center">
                         @Html.LabelFor(m => m.Username)
-                        @Html.TextBoxFor(m => m.Username)
+                        @Html.TextBoxFor(m => m.Username)                        
+                    </p>
+                    <p align="center">
                         @Html.ValidationMessageFor(m => m.Username)
                     </p>
              
                     <p align="center">
                         @Html.LabelFor(m => m.Password)
-                        @Html.PasswordFor(m => m.Password)
+                        @Html.PasswordFor(m => m.Password)                        
+                    </p>
+                    <p align="center">
                         @Html.ValidationMessageFor(m => m.Password)
                     </p>
  

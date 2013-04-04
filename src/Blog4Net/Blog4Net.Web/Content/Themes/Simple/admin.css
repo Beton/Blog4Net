@@ -16,13 +16,13 @@
 { display: inline-block; width: 100px; }
 
 span.field-validation-error
-{ color: red; }
+{ color: aquamarine; }
 
 #login-div form input[type="submit"]
 { margin-left: 200px; }
 
 .validation-summary-errors
-{ text-align: center; color: red; }
+{ text-align: center; color: darkred; }
 
 .adminFooter {
    position:absolute;
@@ -37,5 +37,5 @@ div#tab-posts {
 }
 .loginBox {
     font-family: -moz-fixed;
-    font-size: x-large
+    font-size: large
 }
