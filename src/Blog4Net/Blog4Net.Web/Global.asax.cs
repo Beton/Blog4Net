@@ -6,7 +6,6 @@ using Blog4Net.Core.DAL.Repositories;
 using Blog4Net.Core.Domain;
 using Blog4Net.Core.Infrastructure.IoC;
 using Blog4Net.Web.App_Start;
-using Blog4Net.Web.Infrastructure;
 using Blog4Net.Web.Infrastructure.ModelBinders;
 using Blog4Net.Web.Services;
 using Ninject;
