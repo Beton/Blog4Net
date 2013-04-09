@@ -126,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Infrastructure\ModelBinders\PostModelBinder.cs" />
     <Compile Include="Models\ViewModels\GridViewModel.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Services\FormsAuthenticationService.cs" />

@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Linq;
+using System.Text;
 using System.Web.Mvc;
 using Blog4Net.Core.DAL.Repositories;
+using Blog4Net.Core.Domain;
 using Blog4Net.Web.Models;
 using Blog4Net.Web.Models.ViewModels;
 using Blog4Net.Web.Services;
@@ -59,6 +62,7 @@ namespace Blog4Net.Web.Controllers
             return View();
         }
 
+        [HttpGet]
         public ContentResult Posts(GridViewModel gridParams)
         {
             var posts = blogRepository.Posts(gridParams.Page - 1, gridParams.Rows, gridParams.Sidx, gridParams.sord == "asc");
@@ -74,5 +78,73 @@ namespace Blog4Net.Web.Controllers
 
             return Content(JsonConvert.SerializeObject(@object, new CustomDateTimeConverter()), "application/json");
         }        
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ContentResult AddPost(Post post)
+        {
+            string json;
+
+            ModelState.Clear();
+
+            if (ModelState.IsValid)
+            {
+                var postId = blogRepository.AddPost(post);
+
+                json = JsonConvert.SerializeObject(new
+                    {
+                        id = postId,
+                        success = true,
+                        message = "Post added successfully."
+                    });
+            }
+            else
+            {
+                json = JsonConvert.SerializeObject(new
+                {
+                    id = 0,
+                    success = false,
+                    message = "Failed to add the post."
+                });
+            }
+
+            return Content(json, "application/json");
+        }
+
+        [HttpGet]
+        public ContentResult GetCategoriesHtml()
+        {
+            var categories = blogRepository.Categories().OrderBy(c => c.Name);
+
+            var stringBuilder = new StringBuilder();
+            stringBuilder.Append(@"<select>");
+
+            foreach (var category in categories)
+            {
+                stringBuilder.AppendLine(string.Format(@"<option value=""{0}"">{1}</option>", category.Id, category.Name));
+            }
+
+            stringBuilder.AppendLine(@"<select>");
+
+            return Content(stringBuilder.ToString(), "text/html");
+        }
+
+        [HttpGet]
+        public ContentResult GetTagsHtml()
+        {
+            var tags = blogRepository.Tags().OrderBy(t => t.Name);
+
+            var stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine(@"<select multiple=""multiple"">");
+
+            foreach (var tag in tags)
+            {
+                stringBuilder.AppendLine(string.Format(@"<option value=""{0}"">{1}</option>", tag.Id, tag.Name));
+            }
+
+            stringBuilder.AppendLine("<select>");
+            
+            return Content(stringBuilder.ToString(), "text/html");
+        }
     }
 }

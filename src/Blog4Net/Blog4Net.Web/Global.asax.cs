@@ -3,8 +3,11 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Blog4Net.Core.DAL.Repositories;
+using Blog4Net.Core.Domain;
 using Blog4Net.Core.Infrastructure.IoC;
 using Blog4Net.Web.App_Start;
+using Blog4Net.Web.Infrastructure;
+using Blog4Net.Web.Infrastructure.ModelBinders;
 using Blog4Net.Web.Services;
 using Ninject;
 using Ninject.Web.Common;
@@ -31,6 +34,8 @@ namespace Blog4Net.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             
             base.OnApplicationStarted();
+
+            ModelBinders.Binders.Add(typeof(Post), new PostModelBinder(Kernel));
         }
 
         protected void Application_Error(object sender, EventArgs e)

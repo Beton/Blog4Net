@@ -69,7 +69,7 @@ namespace Blog4Net.Web.Controllers
 
             return View(post);
         }
-
+        
         [ChildActionOnly]
         public PartialViewResult Sidebars()
         {

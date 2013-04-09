@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Blog4Net.Core.Domain;
 using NHibernate;
@@ -154,6 +155,13 @@ namespace Blog4Net.Core.DAL.Repositories
             return category;
         }
 
+        public Category Category(int id)
+        {
+            var category = session.Query<Category>().SingleOrDefault(cat => cat.Id == id);
+
+            return category;
+        }
+
         public IList<Post> PostsForTag(string tagSlug, int pageNumber, int pageSize)
         {
             var query = session.Query<Post>()
@@ -179,6 +187,13 @@ namespace Blog4Net.Core.DAL.Repositories
         public Tag Tag(string tagSlug)
         {
             var tag = session.Query<Tag>().SingleOrDefault(t => t.UrlSlug == tagSlug);
+
+            return tag;
+        }
+
+        public Tag Tag(int id)
+        {
+            var tag = session.Query<Tag>().SingleOrDefault(t => t.Id == id);
 
             return tag;
         }
@@ -227,6 +242,24 @@ namespace Blog4Net.Core.DAL.Repositories
             var tags = session.Query<Tag>().OrderBy(tag => tag.Name);
 
             return tags.ToList();
+        }
+
+        public int AddPost(Post post)
+        {
+            using (var transaction = session.BeginTransaction())
+            {
+                try
+                {                    
+                    session.Save(post);
+                    transaction.Commit();
+                    return post.Id;
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();                    
+                    throw;                    
+                }                                
+            }
         }
     }
 }
