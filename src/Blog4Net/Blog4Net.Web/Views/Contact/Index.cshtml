@@ -1,0 +1,57 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Index</title>
+
+        <link rel="stylesheet"  href="@Url.Content("~/Content/bootstrap.min.css")" />   
+        <link rel="stylesheet"  href="@Url.Content("~/Content/bootstrap-responsive.min.css")" />       
+        <script src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")"  type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/bootstrap.min.js")"  type="text/javascript"></script>
+    
+        <script type="text/javascript">
+            $('#myLink').click(function () { BackToPast(); return false; });
+        
+            function BackToPast() {
+                window.history.back();
+            }
+        
+        </script>
+
+    </head>
+    <body>
+        <div class="modal fade" id="article-editor">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal">&times;</a>
+                <h3>Contact me</h3>
+            </div>
+            <div class="modal-body">
+                @*@using (Html.BeginForm("ContactMe", "Contact", FormMethod.Post, new { id="articleForm" }))
+                {
+ 
+                }*@
+                <div class="row-fluid">
+                    <div class="controls span11">
+                        <label class="control-label" for="Title">Subject</label>
+                        <input type="text"  class="input-xlarge" id="Title" name="Title"  placeholder="Message subject" />
+                        <textarea class="input-xlarge" id="Summary" name="Summary" rows="5" cols="0"  placeholder="Message"></textarea>
+                    </div>
+              
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn" data-dismiss="modal">Close</a>
+                <a href="#" class="btn btn-primary">Send</a>
+            </div>
+        </div>
+        <div style="position: absolute; top: 50%; left: 47%">            
+            <p><a type="button"  class="btn"  href="#article-editor"  data-toggle="modal">Contact me</a></p>
+            <p><a type="button"  class="btn" href="/">Get'm Back</a></p>
+        </div>
+    </body>
+</html>

@@ -126,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Infrastructure\ModelBinders\PostModelBinder.cs" />
     <Compile Include="Models\ViewModels\GridViewModel.cs" />
     <Compile Include="Controllers\BlogController.cs" />
@@ -147,7 +148,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="App_Readme\Elmah.txt" />
+    <Content Include="Content\bootstrap-responsive.css" />
+    <Content Include="Content\bootstrap-responsive.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Icons\Favicon\favicon.ico" />
+    <Content Include="Content\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="Content\Themes\Simple\admin.css" />
     <Content Include="Content\Themes\Simple\images\arrow.png" />
     <Content Include="Content\Themes\Simple\images\back.png" />
@@ -801,9 +808,14 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\admin.js" />
     <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jqgrid\grid.locale-en.js" />
     <Content Include="Scripts\jqgrid\jquery.jqGrid.min.js" />
     <Content Include="Scripts\jqgrid\ui.jqgrid.css" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery.jqGrid-4.4.2\css\ellipsis-xbl.xml" />
     <Content Include="Scripts\jquery.jqGrid-4.4.2\css\ui.jqgrid.css" />
     <Content Include="Scripts\jquery.jqGrid-4.4.2\js\Changes.txt" />
@@ -1193,6 +1205,8 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Views\Contact\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
