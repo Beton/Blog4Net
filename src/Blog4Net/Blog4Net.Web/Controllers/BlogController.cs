@@ -6,6 +6,10 @@ using Blog4Net.Web.Models.ViewModels;
 
 namespace Blog4Net.Web.Controllers
 {
+    using Blog4Net.Core.Domain;
+
+    using StackExchange.Profiling;
+
     public class BlogController : Controller
     {
         private readonly IBlogRepository blogRepository;
@@ -59,8 +63,14 @@ namespace Blog4Net.Web.Controllers
 
         public ViewResult Post(int year, int month, string title)
         {
-            var post = blogRepository.Post(year, month, title);
+            var profiler = MiniProfiler.Current;
 
+            Post post;
+            using (profiler.Step("NHibernate API call:"))
+            {
+                post = blogRepository.Post(year, month, title);                
+            }
+            
             if (post == null) 
                 throw new HttpException(404, string.Format(@"Post '{0}' not found.", title));
 

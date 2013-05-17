@@ -1,18 +1,22 @@
-﻿using System;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-using Blog4Net.Core.DAL.Repositories;
-using Blog4Net.Core.Domain;
-using Blog4Net.Core.Infrastructure.IoC;
-using Blog4Net.Web.App_Start;
-using Blog4Net.Web.Infrastructure.ModelBinders;
-using Blog4Net.Web.Services;
-using Ninject;
-using Ninject.Web.Common;
+﻿namespace Blog4Net.Web
+{
+    using System;
+    using System.Web;
+    using System.Web.Mvc;
+    using System.Web.Routing;
 
-namespace Blog4Net.Web
-{    
+    using Blog4Net.Core.DAL.Repositories;
+    using Blog4Net.Core.Domain;
+    using Blog4Net.Core.Infrastructure.IoC;
+    using Blog4Net.Web.App_Start;
+    using Blog4Net.Web.Infrastructure.ModelBinders;
+    using Blog4Net.Web.Services;
+
+    using Ninject;
+    using Ninject.Web.Common;
+
+    using StackExchange.Profiling;
+
     public class MvcApplication : NinjectHttpApplication
     {            
         protected override IKernel CreateKernel()
@@ -35,6 +39,16 @@ namespace Blog4Net.Web
             base.OnApplicationStarted();
 
             ModelBinders.Binders.Add(typeof(Post), new PostModelBinder(Kernel));
+        }
+
+        protected void Application_BeginRequest()
+        {
+            if (Request.IsLocal) MiniProfiler.Start();
+        }
+
+        protected void Application_EndRequest()
+        {
+            MiniProfiler.Stop();
         }
 
         protected void Application_Error(object sender, EventArgs e)
